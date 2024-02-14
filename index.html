@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geometry Genius</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.6.3/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      li{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="flex flex-col lg:flex-row p-4 md:p-6 lg:p-10 justify-between bg-slate-200">
+      <div>
+        <h1 class="font-extrabold text-3xl">Interactive</h1>
+        <p class="text-zinc-400 text-xl">Geometry Genius</p>
+      </div>
+      <div>
+        <button class="btn">Blog</button>
+      </div>
+    </header>
+    <main>
+      <!-- Geometry -->
+      <section class="flex flex-col lg:flex-row gap-5">
+        <article class="container grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-3 p-2 md:p-4 lg:p-8">
+          <div class="space-y-3 p-3 md:p-5 lg:p-8 text-center hover:bg-slate-400 rounded-2xl h-full card card-compact w-80 bg-base-100 shadow-xl">
+            <!-- Card One -->
+            <img
+              src="./images/triangle.png"
+              alt="triangle"
+              class="w-1/2 h-1/2 block m-auto" />
+            <h1 class="text-2xl">Triangle</h1>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                name=""
+                id="t-base"
+                placeholder="Base in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+              <input
+                type="text"
+                name=""
+                id="t-height"
+                placeholder="Height in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+            </div>
+            <div class="card w-full bg-slate-100 shadow-xl hidden dis" id="d-1">
+              <div class="card-body">
+                <div class="card-actions justify-end">
+                  <button class="btn btn-square btn-sm same">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                  </button>
+                </div>
+                <p id="display-1"></p>
+              </div>
+            </div>
+            <button class="btn btn-primary w-full block text-white" onclick="triangle()">Calculate</button>
+          </div>
+          <div class="space-y-3 p-3 md:p-5 lg:p-8 text-center border hover:bg-gray-400 rounded-2xl h-full card card-compact w-80 bg-base-100 shadow-xl">
+            <!-- Card Two -->
+            <img
+              src="./images/rectangle.png"
+              alt="triangle"
+              class="w-1/2 h-1/2 block m-auto" />
+            <h1 class="text-2xl">Rectangle</h1>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                name=""
+                id="r-base"
+                placeholder="Width in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+              <input
+                type="text"
+                name=""
+                id="r-height"
+                placeholder="Height in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+            </div>
+            <div class="card w-full bg-slate-100 shadow-xl hidden dis" id="d-2">
+              <div class="card-body">
+                <div class="card-actions justify-end">
+                  <button class="btn btn-square btn-sm same">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                  </button>
+                </div>
+                <p id="display-2"></p>
+              </div>
+            </div>
+            <button class="btn btn-primary w-full block text-white" onclick="rectangle()">Calculate</button>
+          </div>
+          <div class="space-y-3 p-3 md:p-5 lg:p-8 text-center border hover:bg-zinc-400 rounded-2xl h-full card card-compact w-80 bg-base-100 shadow-xl">
+            <!-- Card Three -->
+            <img
+              src="./images/rhombus.png"
+              alt="triangle"
+              class="w-1/2 h-1/2 block m-auto" />
+            <h1 class="text-2xl">Rhombus</h1>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                name=""
+                id="rh-base"
+                placeholder="d1 in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+              <input
+                type="text"
+                name=""
+                id="rh-height"
+                placeholder="d2 in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+            </div>
+            <div class="card w-full bg-slate-100 shadow-xl hidden dis" id="d-3">
+              <div class="card-body">
+                <div class="card-actions justify-end">
+                  <button class="btn btn-square btn-sm same">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                  </button>
+                </div>
+                <p id="display-3"></p>
+              </div>
+            </div>
+            <button class="btn btn-primary w-full block text-white" onclick="rhombus()">Calculate</button>
+          </div>
+          <div class="space-y-3 p-3 md:p-5 lg:p-8 text-center border hover:bg-neutral-400 rounded-2xl h-full card card-compact w-80 bg-base-100 shadow-xl">
+            <!-- Card Four -->
+            <img
+              src="./images/parallelogram.png"
+              alt="triangle"
+              class="w-1/2 h-1/2 block m-auto" />
+            <h1 class="text-2xl">Parallelogram</h1>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                name=""
+                id="p-base"
+                placeholder="Perimeter in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+              <input
+                type="text"
+                name=""
+                id="p-height"
+                placeholder="Apothem in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+            </div>
+            <div class="card w-full bg-slate-100 shadow-xl hidden dis" id="d-4">
+              <div class="card-body">
+                <div class="card-actions justify-end">
+                  <button class="btn btn-square btn-sm same">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                  </button>
+                </div>
+                <p id="display-4"></p>
+              </div>
+            </div>
+            <button class="btn btn-primary w-full block text-white" onclick="parallelogram()">Calculate</button>
+          </div>
+          <div class="space-y-3 p-3 md:p-5 lg:p-8 text-center border hover:bg-stone-400 rounded-2xl h-full card card-compact w-80 bg-base-100 shadow-xl">
+            <!-- Card Five -->
+            <img
+              src="./images/pentagon.png"
+              alt="triangle"
+              class="w-1/2 h-1/2 block m-auto" />
+            <h1 class="text-2xl">Pentagon</h1>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                name=""
+                id="pt-base"
+                placeholder="Enter Base in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+              <input
+                type="text"
+                name=""
+                id="pt-height"
+                placeholder="Enter Height in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+            </div>
+            <div class="card w-full bg-slate-100 shadow-xl hidden dis" id="d-5">
+              <div class="card-body">
+                <div class="card-actions justify-end">
+                  <button class="btn btn-square btn-sm same">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                  </button>
+                </div>
+                <p id="display-5"></p>
+              </div>
+            </div>
+            <button class="btn btn-primary w-full block text-white" onclick="pentagon()">Calculate</button>
+          </div>
+          <div class="space-y-3 p-3 md:p-5 lg:p-10 text-center border hover:bg-lime-300 rounded-2xl h-full card card-compact w-80 bg-base-100 shadow-xl">
+            <!-- Card Six -->
+            <img
+              src="./images/ellipse.png"
+              alt="triangle"
+              class="w-1/2 h-1/2 block m-auto" />
+            <h1 class="text-2xl">Ellipse</h1>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                name=""
+                id="e-base"
+                placeholder="Enter Base in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+              <input
+                type="text"
+                name=""
+                id="e-height"
+                placeholder="Enter Height in cm"
+                class="bg-slate-50 text-black input input-bordered w-full max-w-xs" />
+            </div>
+            <div class="card w-full bg-slate-100 shadow-xl hidden dis" id="d-6">
+              <div class="card-body">
+                <div class="card-actions justify-end">
+                  <button class="btn btn-square btn-sm same">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                  </button>
+                </div>
+                <p id="display-6"></p>
+              </div>
+            </div>
+            <button class="btn btn-primary w-full block text-white" onclick="ellipse()">Calculate</button>
+          </div>
+        </article>
+        <div class="border-2 w-full lg:w-1/4 text-center p-2 md:p-6 lg:p-10 sm:mb-10">
+          <h1 class="text-2xl underline">Area Calculation</h1>
+        </div>
+      </section>
+      <!-- Ball moving -->
+      <section>
+        <!-- case function -->
+        <div id="container" class="bg-red-100 h-1/2 w-screen">
+          <div id="ball" class="bg-red-600 w-24 h-24 rounded-full relative"></div>
+
+        </div>
+      </section>
+      <!-- To Do List -->
+      <section class="container p-2 lg:p-10 mb-20">
+        <div class="p-4 md:p-8 lg:p-12 space-y-3 text-center w-1/2 m-auto">
+          <h1 class="font-black text-3xl lg:text-5xl">ToDo List</h1>
+          <input type="text" id="item" class="input input-bordered w-full placeholder:text-2xl" placeholder="Put your task here">
+          <button class="btn btn-primary w-full text-white text-2xl" onclick="addTodo()">Add Task</button>
+        </div>
+        <div class="flex gap-7 justify-center border m-auto w-full">
+          <aside class="bg-indigo-500 p-2 lg:p-6 flex flex-col items-center w-1/2">
+            <h1 class="text-3xl font-bold inline-block">I should complete this task anymore</h1>
+
+            <ul class="text-2xl w-full  *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-white dark:*:border-sky-500/15 dark:*:bg-sky-500/10 *:mb-2" id="ol-parent">
+              <li>Finished module on time</li>
+              <li>Practice code more and more</li>
+              <li>Invest you time properly</li>
+            </ul>
+          </aside>
+          <aside class="w-1/2 border bg-indigo-100 p-2 lg:p-6 flex flex-col items-center">
+            <h1 class="text-3xl font-semibold " id="complete-header">You have no completed task</h1>
+            <ul id="completed-list" class="*:text-xl *:mb-2 *:text-green-500 w-full"></ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <script src="./JS/index.js"></script>
+    <script src="./JS/ball-move.js"></script>
+    <script src="./JS/todo-list.js"></script>
+  </body>
+</html>
